@@ -112,9 +112,6 @@ ActiveRecord::Schema.define(version: 2023_11_16_090016) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "recruit_url_3"
-    t.string "pdf_2"
-    t.string "pdf_3"
     t.string "person_email"
     t.string "recruit_url_2"
     t.string "pdf"
