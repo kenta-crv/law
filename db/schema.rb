@@ -174,4 +174,22 @@ ActiveRecord::Schema.define(version: 2024_02_24_134044) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sfas", force: :cascade do |t|
+    t.string "co"
+    t.string "name"
+    t.string "tel"
+    t.string "address"
+    t.string "email"
+    t.string "url"
+    t.string "recruit_url"
+    t.string "business"
+    t.string "first_question"
+    t.string "second_question"
+    t.string "third_question"
+    t.string "remarks"
+    t.datetime "meeting_day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
