@@ -170,11 +170,6 @@ ActiveRecord::Schema.define(version: 2024_02_24_134044) do
   end
 
   create_table "sfas", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sfas", force: :cascade do |t|
     t.string "co"
     t.string "name"
     t.string "tel"
