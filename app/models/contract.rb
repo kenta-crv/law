@@ -1,3 +1,4 @@
 class Contract < ApplicationRecord
-    #has_many :progresses
+    has_one :script, dependent: :destroy
+    has_many :comments, dependent: :destroy
 end

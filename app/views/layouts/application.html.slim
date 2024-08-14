@@ -1,34 +1,77 @@
 doctype html
 html
   head
-    = render template: 'layouts/_head.html.slim'
+      = render template: 'layouts/_head.html.slim'
   header
-   .row
-     .col-xs-3
-       = link_to "/" do
-        = image_tag 'rogo.webp',  class:"menu", alt:"eatery japanロゴ"
-     .col-xs-6
-       /.search2.center.height
-        /= search_form_for @q do |f|
-         /= f.search_field :co_cont, type: "text", class:"window"
-         /= f.submit "検索", class:"submit-button"
-     /.col-xs-3
+      .row
+        .col-xs-3
+           = link_to "/"
+            =image_tag "rogo.webp", width: "80%", class:"header-image", alt:"株式会社Ri-Plus『アポ匠ロゴ』"
+        .col-xs-3
+        .col-xs-4
+        .col-xs-1
                 .navToggle
                   span
                   span
                   span
                   span menu
-   .row.navi
-        .col-xs-12.center.hidden-xs
-  br
+      .row.navi
+        .col-xs-12.center
+          ul#dropmenu
+           /li
+             = link_to  'トップ', '/' , class: "col-md"
+           /li
+             = link_to  'サービス紹介',"/" , :class=>"col-md"
+             ul.sub-menu-nav
+              li
+               = link_to "独自マーケティング手法","/marketing",class:"white"
+              li
+               = link_to "取引フロー","/flow",class:"white"
+              li
+               = link_to "導入実績","/review",class:"white"
+           /li
+             = link_to  '事業内容', '/business' , :class=>"col-md"
+           /li
+             = link_to  '記事一覧', '/posts' , :class=>"col-md"
+           /li
+             = link_to  'よくある質問', '/question' , :class=>"col-md"
+           /li
+             = link_to  '会社概要', '/company' , :class=>"col-md"
+           /li
+             /= link_to  '問い合わせ', '/contact' , :class=>"col-md"
+
+
+        nav.globalMenuSp
+           ul
+            li
+              = link_to  'トップ', '/'
+            li
+              = link_to  'サービス紹介',"/"
+            li
+              = link_to "独自マーケティング手法","/marketing"
+            li
+              = link_to "取引フロー","/flow"
+            li
+              = link_to "導入実績","/review"
+            li
+              = link_to  '事業内容', '/business'
+            li
+              = link_to  '記事一覧', '/posts'
+            li
+              = link_to  'よくある質問', '/question'
+            li
+              = link_to  '会社概要', '/company'
+            li
+             = link_to  '問い合わせ', '/contact'
 
   body
-    /p.notice
-     /  = notice
-    /p.alert
-     /  = alert
-
-    .row
-     .col-sm-12
+    p.notice
+      = notice
+    p.alert
+      = alert
+    main
+      .bread
+        = render_breadcrumbs separator: ' > '
       = yield
-    br
+  br
+  br

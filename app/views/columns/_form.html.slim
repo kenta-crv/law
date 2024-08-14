@@ -1,14 +1,10 @@
-= form_for @column do |f|
+a= form_for @column do |f|
    table.company
      tbody
       tr
         th.arrow_box タイトル
       tr
         td colspan="2" = text_field :column, :title, class:"title"
-      tr
-        th.arrow_box カテゴリー選択
-      tr
-        td = f.select(:kategory, Column.KategoryStatus)
       tr
         th.arrow_box  完結分（100文字以内）
       tr

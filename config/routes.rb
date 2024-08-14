@@ -1,43 +1,28 @@
 Rails.application.routes.draw do
-    #管理者アカウント
-    devise_for :admins, controllers: {
-      registrations: 'admins/registrations',
-      sessions: 'admins/sessions'
-    }
-    resources :admins, only: [:show]
+  devise_for :admins
 
-    root to: 'tops#index' #トップページ
+  root to: 'top#index' #トップランディングページ
 
-    resources :estimates do
-      resource :comments
-      collection do
-        post :confirm
-        post :thanks
-      end
+
+  resources :scripts, only: [:index]
+
+  resources :contracts do
+    resource :comments
+    resource :script #1:1
+    collection do
+      post :confirm
+      post :thanks
     end
-    
-    resources :contracts do
-      resources :progresses
-      collection do
-        post :confirm
-        post :thanks
-      end
+    member do
+      post :send_mail
+      post :send_mail_start #開始日の送信
+      get "info" #案内
+      get "conclusion"
+      get "payment" 
+      get "calendar"
+      get "start"
     end
+  end
 
-    resources :columns
-    resources :jobs
-
-    resources :sfas do
-      resources :progresses
-      collection do
-        post :confirm
-        post :thanks
-      end
-    end
-    
-    get 'lp' => 'tops#lp'
-    get 'thanks' => 'tops#thanks'
-
-    #get '*path', controller: 'application', action: 'render_404'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '*path', controller: 'application', action: 'render_404'
 end

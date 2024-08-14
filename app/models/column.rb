@@ -151,12 +151,5 @@ class Column < ApplicationRecord
    self.heading_20.delete(DELETE_TEXT_1).delete(DELETE_TEXT_2)
  end
 
- @@kategory_status = [
-   ["自販機コラム","自販機コラム"],
-   ["面接・採用","面接・採用"],
-   ["自販機コラム","自販機コラム"],
- ]
- def self.KategoryStatus
-   @@kategory_status
- end
+
 end

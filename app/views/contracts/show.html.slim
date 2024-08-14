@@ -1,199 +1,229 @@
- .tops-wrapper
-   h2.headline
-     | 顧客情報詳細 
-     = link_to "編集", edit_contract_path(@contract) , class:"btn btn-primary"
-     = link_to "削除", contract_path(@contract) ,method: :delete,  data: { confirm: '本当に削除しますか？'}, class:"btn btn-danger"
- 
- table.company.responsive-table
-      colgroup
+- set_meta_tags noindex: true
+.tops-wrapper
+ br
+ h2.headline  基本情報
+ table.company
+       colgroup
          col width="10%"
          col width="20%"
          col width="70%"
-      tr
+       tr
         td.label-cell
           strong.label 必須
         td.arrow-box-cell
           | 会社名
         td.responsive-cell
          .input-container
-          = @contract.co
-      tr
+          = @contract.company
+       tr
         td.label-cell
           strong.label 必須
         td.arrow-box-cell
-          | 代表者名
+          | ご担当者様名
         td.responsive-cell
          .input-container
-           = @contract.president_first
-           = @contract.president_last
-      tr
+          = @contract.name
+       tr
         td.label-cell
           strong.label 必須
-        td.arrow-box-cell
-          | 会社電話番号
-        td.responsive-cell
-         .input-container
-          = @contract.tel
-      tr
-        td.label-cell
-          strong.label 必須
-        td.arrow-box-cell
-          | 住所
-        td.responsive-cell
-         .input-container
-          = @contract.address
-      tr
-        td.label-cell
-          strong.label 必須
-        td.arrow-box-cell
-          | 会社URL
-        td.responsive-cell
-         .input-container
-          = @contract.url
-      tr
-        td.label-cell
-          strong.label.label-blue あれば必須
-        td.arrow-box-cell
-          | 求人ページURL
-        td.responsive-cell
-         .input-container
-          = @contract.recruit_url
-      tr
-        td.label-cell
-          strong.label.label-blue あれば必須
-        td.arrow-box-cell
-          | 添付PDF
-        td.responsive-cell
-         .input-container
-          = @contract.pdf
-      tr
-        td.label-cell
-          strong.label 必須
-        td.arrow-box-cell
-          | 採用予定職種
-        td.responsive-cell
-         .input-container
-          = @contract.work
-      tr
-        td.label-cell
-          strong.label 必須
-        td.arrow-box-cell
-          | ご利用プラン選択
-        td.responsive-cell
-         .input-container
-          = @contract.plan
-      tr
-        td.label-cell
-          strong.label 必須
-        td.arrow-box-cell
-          | 募集人数
-        td.responsive-cell
-         .input-container
-          = @contract.number
-          | 人
-      tr
-        td.label-cell
-          strong.label 必須
-        td.arrow-box-cell
-          | 希望採用予定
-        td.responsive-cell
-         .input-container
-          = @contract.period
-      tr
-        td.label-cell
-          strong.label.label-blue 任意
-        td.arrow-box-cell
-          | 備考
-        td.responsive-cell
-         .input-container
-          = @contract.remarks
-
- .tops-wrapper
-  h2.headline  担当者情報
- table.company.responsive-table
-      colgroup
-         col width="10%"
-         col width="20%"
-         col width="70%"
-      tr
-        td.label-cell
-          strong.label.label-blue 同上なら未記入
-        td.arrow-box-cell
-          | 担当者名
-        td.responsive-cell
-         .input-container
-          = @contract.person_first
-          = @contract.person_last
-      tr
-        td.label-cell
-          strong.label.label-blue 同上なら未記入
         td.arrow-box-cell
           | 電話番号
         td.responsive-cell
          .input-container
-          = @contract.person_tel
-      tr
+          = @contract.tel
+       tr
         td.label-cell
-          strong.label.label-blue 同上なら未記入
+          strong.label 必須
+        td.arrow-box-cell
+          | 所在地
+        td.responsive-cell
+         .input-container
+          = @contract.address
+       tr
+        td.label-cell
+          strong.label 必須
         td.arrow-box-cell
           | メールアドレス
         td.responsive-cell
          .input-container
           = @contract.email
+       tr
+        td.label-cell
+          strong.label 必須
+        td.arrow-box-cell
+          | 発注予定時期
+        td.responsive-cell
+         .input-container
+          = @contract.period
+       tr
+        td.label-cell
+          strong.label.label-blue 任意
+        td.arrow-box-cell
+          | 備考・要望
+        td.responsive-cell
+         .input-container
+          = @contract.message
+       tr
+        td
+          strong.label 必須
+        td
+          |代表取締役
+        td
+          = @contract.president_name
+       tr
+        td
+          strong.label 必須
+        td
+          |役職
+        td
+          = @contract.post_title
+       tr
+        td
+          strong.label 必須
+        td
+          |契約の同意
+        td
+          = @contract.agree
+       tr
+        td
+          strong.label 必須
+        td
+          |契約日
+        td
+         - if @contract.contract_date.present?
+           - contract_date = Date.parse(@contract.contract_date)
+           = contract_date.strftime("%Y年%m月%d日")
 
- h2.headline  
-  | 進捗情報
- table.company[width="100%"]
-  = form_for([@contract, @progress], url: contract_progresses_path(contract_id: @contract)) do |f|
+       tr
+        td
+          strong.label 必須
+        td
+          |開始日
+        td
+          - if @contract.start_day.present?
+            = @contract.start_day.strftime("%Y年%m月%d日")
+
+       - if admin_signed_in?
+        tr
+         td
+           strong.label 必須
+         td
+           |初期費用
+         td
+           = @contract.initial_cost
+        tr
+         td
+           strong.label 必須
+         td
+           |契約期間
+         td
+           = @contract.contract_period
+        tr
+         td
+           strong.label 必須
+         td
+           |単価
+         td
+           = @contract.unit_price
+        tr
+         td
+           strong.label 必須
+         td
+           |最大件数
+         td
+           = @contract.maximum_number
+        tr
+         td
+           strong.label 必須
+         td
+           |アプローチエリア
+         td
+           = @contract.approach_area
+        tr
+         td
+           strong.label 必須
+         td
+           |アプローチ業種
+         td
+           = @contract.approach_industry
+        tr
+         td
+           strong.label 必須
+         td
+           |提供サービス
+         td
+           = @contract.service
+        tr
+         td
+           strong.label 必須
+         td
+           |サービス内容
+         td
+           = @contract.business
+        tr
+         td
+           strong.label 必須
+         td
+           |商談方法
+         td
+           = @contract.meeting
+        tr
+         td
+           strong.label 必須
+         td
+           |レポート
+         td
+           = @contract.report
+.actions_container style="text-align: center; margin-bottom: 30px;"
+  = link_to "契約へ進む", info_contract_path(@contract), class: "btn btn-primary"
+  - if admin_signed_in?
+   = link_to "削除する", contract_path(@contract), class: "btn btn-danger", method: :delete, data: { confirm: '本当に削除しますか？' }, style: "margin-left: 10px;"
+   = link_to "一覧に戻る", contracts_path, class: "btn btn-default"
+   = link_to "編集", edit_contract_path(@contract), class: "btn btn-success"
+
+- if admin_signed_in?
+ = form_for [@contract, @contract.comments.build] do |f|
+  table.company[width="100%"]
+    col[width="25%"]
+    col[width="25%"]
+    col[width="25%"]
     tbody
-    col[width="10%"]
-    col[width="15%"]
-    col[width="15%"]
-    col[width="42%"]
-    col[width="8%"]
-      tr 
-       th ステータス
-       th 最終更新日
-       th 次回提案日
-       th コメント
-       th 削除
-      tr.ceter
-       td
-        = f.select(:status,[\
-              ["",""],\
-              ["不在","不在"],\
-              ["見込低","見込低"],\
-              ["見込中","見込中"],\
-              ["見込高","見込高"],\
-              ["契約","契約"],\
-              ["連絡不通","連絡不通"],\
-              ["設置NG","設置NG"],\
-          ])
-       td
-       td
-        = f.datetime_field :next
-       td
-        = f.text_area :body
-       td
-      tr 
-          td[colspan="6"]
-           .center
-            = f.submit "登録",class:"btn btn-primary"
- - @contract.progresses.each do |progress|
-      table.company[width="100%"]
-       col[width="10%"]
-       col[width="15%"]
-       col[width="15%"]
-       col[width="42%"]
-       col[width="8%"]
-       tr.center
+      tr
+          th
+            | ステータス
+          th
+            | 次回営業日
+          th
+            | コメント
+
+      tr
+          td
+            = f.select(:status, [\
+            ["商談","商談"],\
+            ["見込低","見込低"],\
+            ["見込中","見込中"],\
+            ["見込高","見込高"],\
+            ["契約","契約"],\
+            ["NG","NG"]],include_blank: "選択してください")     
+          td
+            = f.datetime_field :next
+          td
+            = f.text_area :body
+      tr
+        th[colspan="3"]
+         .center
+          = f.submit "登録する", class:"btn btn-primary"
+ small 商談ステータスを入れる場合は商談日を入力。　不在の場合、ステータスは以前のステータスにし、不在にチェックを入れる
+ table.company[width="100%"]
+  - if @contract.comments.any?
+    tbody
+     - @contract.comments.each do |comment|
+       tr
         td
-          = progress.status
+          = comment.status
         td
-          = progress.created_at.strftime("%Y年%m月%d日")
+          = comment.next
         td
-          = progress&.next&.strftime("%Y年%m月%d日 %-H時%-M分")
+          = comment.body
         td
-          = progress.body
-        td
-          = link_to "削除", contract_progress_path(@contract, progress), method: :delete, data: {confirm:"本当に削除しますか？"}, class:"btn btn-danger"
+          = link_to "編集", edit_contract_comments_path(@contract, comment), _blank: "target"

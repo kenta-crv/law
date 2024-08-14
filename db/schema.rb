@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_19_042357) do
+ActiveRecord::Schema.define(version: 2024_05_08_052827) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -92,100 +92,71 @@ ActiveRecord::Schema.define(version: 2024_03_19_042357) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "contracts", force: :cascade do |t|
-    t.string "agree"
-    t.string "co"
-    t.string "president_first"
-    t.string "president_last"
-    t.string "tel"
-    t.string "address"
-    t.string "url"
-    t.string "recruit_url"
-    t.string "work"
-    t.string "plan"
-    t.string "number"
-    t.string "period"
-    t.string "remarks"
-    t.string "person_first"
-    t.string "person_last"
-    t.string "person_tel"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "person_email"
-    t.string "recruit_url_2"
-    t.string "pdf"
-    t.string "memo"
-  end
-
-  create_table "estimates", force: :cascade do |t|
-    t.string "co"
-    t.string "name"
-    t.string "tel"
-    t.string "email"
-    t.string "address"
-    t.string "url"
-    t.string "contents"
-    t.string "budget"
-    t.string "important"
-    t.string "language"
-    t.string "order"
-    t.string "period"
-    t.string "remarks"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "jobs", force: :cascade do |t|
-    t.string "prefecture"
-    t.string "city"
-    t.string "birth"
-    t.string "gender"
-    t.string "age"
-    t.string "hire_date_1"
-    t.string "retirement_date_1"
-    t.string "content_1"
-    t.string "hire_date_2"
-    t.string "retirement_date_2"
-    t.string "content_2"
-    t.string "hire_date_3"
-    t.string "retirement_date_3"
-    t.string "content_3"
-    t.string "requirements"
-    t.string "appeal"
-    t.string "desired"
-    t.string "remarks"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "progresses", force: :cascade do |t|
-    t.integer "contract_id"
+  create_table "comments", force: :cascade do |t|
+    t.integer "contract_id", null: false
     t.string "status"
     t.datetime "next"
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sfa_id"
-    t.index ["contract_id"], name: "index_progresses_on_contract_id"
+    t.index ["contract_id"], name: "index_comments_on_contract_id"
   end
 
-  create_table "sfas", force: :cascade do |t|
-    t.string "co"
+  create_table "contracts", force: :cascade do |t|
+    t.string "company"
     t.string "name"
     t.string "tel"
-    t.string "address"
     t.string "email"
-    t.string "url"
-    t.string "recruit_url"
+    t.string "address"
+    t.string "period"
+    t.string "message"
+    t.string "initial_cost"
+    t.string "contract_period"
+    t.string "unit_price"
+    t.string "maximum_number"
+    t.string "approach_area"
+    t.string "approach_industry"
+    t.string "post_title"
+    t.string "president_name"
+    t.string "agree"
+    t.string "contract_date"
+    t.string "start_day"
     t.string "business"
-    t.string "first_question"
-    t.string "second_question"
-    t.string "third_question"
+    t.string "service"
+    t.string "hope_start"
+    t.string "hope_count"
+    t.string "meeting"
+    t.string "thought"
     t.string "remarks"
-    t.datetime "meeting_day"
+    t.string "report"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "scripts", force: :cascade do |t|
+    t.integer "contract_id", null: false
+    t.string "sales_manager"
+    t.string "contact_number"
+    t.string "infomation"
+    t.string "hearing_1"
+    t.string "hearing_2"
+    t.string "hearing_3"
+    t.string "question_1"
+    t.string "answer_1"
+    t.string "question_2"
+    t.string "answer_2"
+    t.string "question_3"
+    t.string "answer_3"
+    t.string "question_4"
+    t.string "answer_4"
+    t.string "question_5"
+    t.string "answer_5"
+    t.string "question_6"
+    t.string "answer_6"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contract_id"], name: "index_scripts_on_contract_id"
   end
 
 end
