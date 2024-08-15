@@ -6,7 +6,7 @@ Rails.application.configure do
   # ActionMailer::Base.delivery_method = :letter_opener_web
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    address: 'law@factoru.jp',
+    address: 'smtp.lolipop.jp',
     domain: 'factoru.jp',
     port: 587,
     user_name: 'law@factoru.jp',
@@ -44,7 +44,6 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 

@@ -1,0 +1,15 @@
+current directory: /opt/webroot/law/vendor/bundle/ruby/2.7.0/gems/racc-1.8.1/ext/racc/cparse
+/home/smart/.anyenv/envs/rbenv/versions/2.7.0/bin/ruby -I /home/smart/.anyenv/envs/rbenv/versions/2.7.0/lib/ruby/site_ruby/2.7.0 -r ./siteconf20240815-665020-us94j7.rb extconf.rb
+creating Makefile
+
+current directory: /opt/webroot/law/vendor/bundle/ruby/2.7.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= clean
+
+current directory: /opt/webroot/law/vendor/bundle/ruby/2.7.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\=
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /opt/webroot/law/vendor/bundle/ruby/2.7.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 cparse.so ./.gem.20240815-665020-fnz70x/racc
