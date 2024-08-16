@@ -1,1 +1,0 @@
-["--host=x86_64-redhat-linux", "--enable-static", "--disable-shared", "--enable-shared=no", "--enable-static=yes", "--enable-fts5", "CC=gcc", "CFLAGS=-fPIC -O2 -fvisibility=hidden -DSQLITE_DEFAULT_WAL_SYNCHRONOUS=1", "--prefix=/opt/webroot/carelink/vendor/bundle/ruby/2.7.0/gems/sqlite3-1.7.2/ports/x86_64-redhat-linux/sqlite3/3.45.1"]

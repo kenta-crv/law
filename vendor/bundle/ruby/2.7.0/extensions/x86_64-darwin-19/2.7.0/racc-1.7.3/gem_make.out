@@ -1,0 +1,16 @@
+current directory: /Users/okuyamakenta/Program/law/vendor/bundle/ruby/2.7.0/gems/racc-1.7.3/ext/racc/cparse
+/Users/okuyamakenta/.rbenv/versions/2.7.0/bin/ruby -I /Users/okuyamakenta/.rbenv/versions/2.7.0/lib/ruby/site_ruby/2.7.0 extconf.rb
+creating Makefile
+
+current directory: /Users/okuyamakenta/Program/law/vendor/bundle/ruby/2.7.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240815-60937-cspm7c sitelibdir\=./.gem.20240815-60937-cspm7c clean
+
+current directory: /Users/okuyamakenta/Program/law/vendor/bundle/ruby/2.7.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240815-60937-cspm7c sitelibdir\=./.gem.20240815-60937-cspm7c
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+ld: warning: -multiply_defined is obsolete
+
+current directory: /Users/okuyamakenta/Program/law/vendor/bundle/ruby/2.7.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240815-60937-cspm7c sitelibdir\=./.gem.20240815-60937-cspm7c install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20240815-60937-cspm7c/racc

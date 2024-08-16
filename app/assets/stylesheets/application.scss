@@ -307,7 +307,7 @@ footer {
    }
 
    h3 {
-     background: linear-gradient(transparent 70%, #a7d6ff 70%);
+     background: linear-gradient(transparent 70%, $main_color 70%);
      margin:50px 30px 40px;
      @media screen and ( max-width:479px ){
        font-size: 14px;
@@ -594,7 +594,7 @@ table.right {margin:5px 50px 5px 0px;}
 
 
   h3 {
-    background: linear-gradient(transparent 70%, #a7d6ff 70%);
+    background: linear-gradient(transparent 70%, $main_color 70%);
     margin:50px 30px 40px;
     text-align:left;
     font-weight:bold;
@@ -1210,7 +1210,7 @@ p.width{width:90%;}
 
 
   h3 {
-    background: linear-gradient(transparent 70%, #a7d6ff 70%);
+    background: linear-gradient(transparent 70%, $main_color 40%);
     margin:50px 30px 40px;
     @media screen and ( max-width:479px ){
       font-size: 14px;
@@ -1474,3 +1474,13 @@ table.list {
      }
 
 }
+
+
+.face{
+  padding:0.5em; /*上下左右の余白*/
+  border:solid 3px $main_color; /*線の種類 太さ 色*/
+  background-color:$main_color; 
+  color: white;
+  font-size:120%;
+  font-weight:bold;
+ }

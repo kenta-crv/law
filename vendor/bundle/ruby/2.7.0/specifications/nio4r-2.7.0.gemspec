@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/socketry/nio4r".freeze
   s.licenses = ["MIT AND (BSD-2-Clause OR GPL-2.0-or-later)".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 2.4".freeze)
-  s.rubygems_version = "3.3.5".freeze
+  s.rubygems_version = "3.3.23".freeze
   s.summary = "New IO for Ruby".freeze
 
-  s.installed_by_version = "3.3.5" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.3.23" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

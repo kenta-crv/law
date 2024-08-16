@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
 
   root to: 'top#index' #トップランディングページ
-
+  get 'traffic' => 'top#traffic'
 
   resources :scripts, only: [:index]
 
